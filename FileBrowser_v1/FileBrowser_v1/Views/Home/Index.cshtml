@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+@{
+    Layout = null;
+}
+
+<html data-ng-app="app" >
+    <body>
+        <div data-ng-controller="homeCtrl">
+
+            <p>
+            <table class="files">
+              <tr class="files">
+                <th class="files">Less 10Mb</th>
+                <th class="files">10Mb-50Mb</th>
+                <th class="files">More 100Mb</th>
+              </tr>
+              <tr class="files">
+                <td class="files">{{summary.FileCount10}}</td>
+                <td class="files">{{summary.FileCount50}}</td>
+                <td class="files">{{summary.FileCount100}}</td>
+              </tr>
+            </table>
+
+
+            <p><b>Current path:</b> {{summary.Name}}</p>
+
+            <table>
+                <tbody ng-repeat="f in summary.Content">
+                    <tr>
+                        <td><a href="#" ng-click="updateFolder1(f)"> {{ f.Name }} </a> </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/angular")
+        @Scripts.Render("~/bundles/app")
+
+</body>
+
+
+    <style>
+    table.files {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th.files, td.files {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    th.files {
+        background-color: lightgrey;
+        color: white;
+    }
+    </style>
+</html>
+
+
